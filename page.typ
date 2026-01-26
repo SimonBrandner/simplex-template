@@ -10,9 +10,9 @@
   #v(-5pt)
   #line(length: 100%, stroke: light-color + 0.1pt)
 ]
-#let page-footer() = context [
+#let page-footer(author) = context [
   #grid(
     columns: (1fr, 1fr),
-    align(left)[Šimon Brandner], align(right)[#datetime.today().display()],
+    align(left, author), align(right)[#datetime.today().display()],
   )
 ]

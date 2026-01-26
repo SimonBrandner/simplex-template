@@ -39,7 +39,7 @@
     pagebreak()
   }
 
-  set page(header: page-header(), footer: page-footer())
+  set page(header: page-header(), footer: page-footer(title-page.author))
 
   if dedication != none {
     align(bottom)[
