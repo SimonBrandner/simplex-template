@@ -9,6 +9,7 @@
   keywords: none,
   abstract-other-language: none,
   keywords-other-language: none,
+  show-outline: true,
   body,
 ) = {
   set page(paper: "a4")
@@ -36,17 +37,25 @@
 
   if title-page != none {
     front-page(title-page)
-    pagebreak()
   }
 
   set page(header: page-header(), footer: page-footer(title-page.author))
 
   if dedication != none {
+    pagebreak()
     align(bottom)[
       #heading(numbering: none, outlined: false, level: 2)[#dedication.title]
       #dedication.content
       #v(3em)
     ]
+  }
+
+  if (
+    abstract != none
+      or keywords != none
+      or abstract-other-language != none
+      or keywords-other-language != none
+  ) {
     pagebreak()
   }
 
@@ -78,18 +87,12 @@
     keywords-other-language.content
   }
 
-  if (
-    abstract != none
-      or keywords != none
-      or abstract-other-language != none
-      or keywords-other-language != none
-  ) {
+  if show-outline {
     pagebreak()
+    outline(title: heading(level: 2, "Contents"))
   }
 
-  outline(title: heading(level: 2, "Contents"))
-
-  set page(numbering: "1")
+  show: set page(numbering: "1")
   counter(page).update(1)
   pagebreak()
 
