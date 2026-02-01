@@ -47,7 +47,7 @@
 #let border-text-box(kind, supplement) = {
   let render = text-box(kind, supplement)
 
-  (name, content) => render(
+  (name: none, content) => render(
     number-and-supplement => box(
       stroke: 0.5pt,
       inset: 7.5pt,
@@ -57,7 +57,7 @@
       #text(
         font: title-font,
       )[
-        #text(weight: "bold")[#number-and-supplement] (#name).
+        #text(weight: "bold")[#number-and-supplement]#if name != none [ (#name)].
       ]
       #content
     ],
