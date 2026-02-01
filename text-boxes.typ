@@ -66,7 +66,7 @@
 
 #let proof(content) = [
   #text(font: title-font, weight: "bold")[Proof.]
-  #content
+  #content $qed$
 ]
 
 #let definition = border-text-box("definition", "Definition")
