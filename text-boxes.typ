@@ -64,7 +64,7 @@
   )
 }
 
-#let proof(content) = block[
+#let proof(content) = block(width: 100%)[
   #text(font: title-font, weight: "bold")[Proof.]
   #content#place(bottom + right, $qed$)
 ]
