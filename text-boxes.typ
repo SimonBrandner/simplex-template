@@ -64,9 +64,9 @@
   )
 }
 
-#let proof(content) = [
+#let proof(content) = block[
   #text(font: title-font, weight: "bold")[Proof.]
-  #content $qed$
+  #content#place(bottom + right, $qed$)
 ]
 
 #let definition = border-text-box("definition", "Definition")
