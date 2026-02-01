@@ -4,6 +4,7 @@
 
 ```typst
 #import "@local/simplex-template:0.1.0": *
+#import "@preview/fletcher:0.5.8" as fletcher: diagram, edge
 
 #show: body => simplex-template(
   title-page: (
@@ -38,4 +39,22 @@ Hello world!
   Let X be Y, then Z.
 ]
 #proof[Is left to the reader.]
+
+#equation(
+  $
+    integral_a^b f(x) "d"x = F(b) - F(a).
+  $
+) <newton>
+
+See @newton.
+
+#equation(
+  diagram(
+    $
+      & Z edge("d", "-->", exists ! f) edge("ldd", "->", bend: #(-30deg), f_1) edge("rdd", "->", bend: #30deg, f_2) \
+      & X times Y edge("ld", "->", pi_1) edge("rd", "->", pi_2) \
+      X & & Y
+    $,
+  ),
+)
 ```

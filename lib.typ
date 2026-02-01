@@ -1,6 +1,7 @@
 #import "text-boxes.typ": *
 #import "page.typ": *
 #import "front-page.typ": *
+#import "equations.typ": *
 
 #let simplex-template(
   title-page: none,
@@ -19,19 +20,19 @@
   set text(size: 12pt)
 
   show: text-boxes
+  show: equations
   show heading: set text(weight: "bold", font: title-font)
   show heading.where(level: 1): set text(size: 30pt)
   show heading.where(level: 2): set text(size: 20pt)
 
-  show ref: it => [
-    #h(3pt)
-    #box(
+  show ref: it => [#h(1pt)#box(
       stroke: light-color,
-      outset: 2pt,
+      inset: (left: 1pt, right: 1pt, bottom: 3.5pt, top: 2pt),
+      baseline: 3.5pt,
       radius: 3pt,
       it,
-    )
-  ]
+    )#h(1pt)]
+
 
   show: set page(numbering: "i", footer: none)
 
