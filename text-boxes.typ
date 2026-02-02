@@ -66,13 +66,23 @@
 
 #let proof(content) = block(width: 100%)[
   #text(font: title-font, weight: "bold")[Proof.]
-  #content#place(bottom + right, $qed$)
+  #content#place(bottom + right, $square$)
+]
+#let solution(content) = block(width: 100%)[
+  #text(font: title-font, weight: "bold")[Solution.]
+  #content#place(bottom + right, $triangle$)
 ]
 
 #let definition = border-text-box("definition", "Definition")
 #let theorem = border-text-box("theorem", "Theorem")
 #let remark = non-border-text-box("remark", "Remark")
-#let text-boxes-kinds = ("definition", "remark", "theorem")
+#let exercise(..args, number: none) = {
+  if number != none {
+    counter(counter-name("exercise")).update(number - 1)
+  }
+  non-border-text-box("exercise", "Exercise")(..args)
+}
+#let text-boxes-kinds = ("definition", "remark", "theorem", "exercise")
 
 #let text-boxes(body) = {
   show: body => text-boxes-kinds.fold(body, (
