@@ -26,7 +26,6 @@
   show heading.where(level: 2): set text(size: 20pt)
 
   // A hack to fix https://github.com/typst/typst/issues/529
-  show enum: e => box(e, width: 100%)
   show math.equation.where(block: true): e => [
     #box(width: 100%, inset: 0em, [
       #set align(center)
