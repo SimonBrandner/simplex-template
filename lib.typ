@@ -24,6 +24,7 @@
   show heading: set text(weight: "bold", font: title-font)
   show heading.where(level: 1): set text(size: 30pt)
   show heading.where(level: 2): set text(size: 20pt)
+  show heading.where(level: 3): set text(size: 16pt)
 
   // A hack to fix https://github.com/typst/typst/issues/529
   show math.equation.where(block: true): e => [
