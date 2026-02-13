@@ -34,12 +34,13 @@
     ])
   ]
 
-  show ref: it => [#h(1pt)#box(
+  show ref: it => [#h(2pt)#box(
       stroke: light-color,
+      fill: luma(245),
       outset: (left: 1pt, right: 1pt, bottom: 3.5pt, top: 2pt),
-      radius: 3pt,
+      radius: 2pt,
       it,
-    )#h(1pt)]
+    )#h(2pt)]
 
   show: set page(numbering: "i", footer: none)
 
