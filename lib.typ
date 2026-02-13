@@ -36,12 +36,10 @@
 
   show ref: it => [#h(1pt)#box(
       stroke: light-color,
-      inset: (left: 1pt, right: 1pt, bottom: 3.5pt, top: 2pt),
-      baseline: 3.5pt,
+      outset: (left: 1pt, right: 1pt, bottom: 3.5pt, top: 2pt),
       radius: 3pt,
       it,
     )#h(1pt)]
-
 
   show: set page(numbering: "i", footer: none)
 
