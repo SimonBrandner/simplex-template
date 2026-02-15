@@ -2,6 +2,7 @@
 #import "page.typ": *
 #import "front-page.typ": *
 #import "equations.typ": *
+#import "term-dictionaries.typ": *
 
 #let simplex-template(
   title-page: none,
@@ -11,13 +12,18 @@
   abstract-other-language: none,
   keywords-other-language: none,
   show-outline: true,
+  lang: "en",
   body,
 ) = {
+  if lang == "cs" {
+    term-dictionary.update(cs-dictionary)
+  }
+
   set page(paper: "a4")
   set enum(numbering: "(a)", indent: 10pt)
   set par(justify: true)
   set heading(numbering: "1.1")
-  set text(size: 12pt)
+  set text(size: 12pt, lang: lang)
 
   show: text-boxes
   show: equations
@@ -69,11 +75,15 @@
   }
 
   if abstract != none {
-    heading(numbering: none, outlined: false, level: 2)[Abstract]
+    heading(numbering: none, outlined: false, level: 2)[#context {
+      term-dictionary.get().Abstract
+    }]
     abstract
   }
   if keywords != none {
-    heading(numbering: none, outlined: false, level: 2)[Keywords]
+    heading(numbering: none, outlined: false, level: 2)[#context {
+      term-dictionary.get().Keywords
+    }]
     keywords
   }
 
@@ -98,7 +108,9 @@
 
   if show-outline {
     pagebreak()
-    outline(title: heading(level: 2, "Contents"))
+    outline(title: heading(level: 2, context {
+      term-dictionary.get().Contents
+    }))
   }
 
   show: set page(numbering: "1")

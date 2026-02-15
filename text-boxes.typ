@@ -1,5 +1,6 @@
 #import "fonts.typ": title-font
 #import "colors.typ": light-color
+#import "term-dictionaries.typ": *
 
 #let counter-name(kind) = kind + ":counter"
 #let label-name(kind) = kind + ":label"
@@ -65,24 +66,52 @@
 }
 
 #let proof(content) = block(width: 100%)[
-  #text(font: title-font, weight: "bold")[Proof.]
+  #text(
+    font: title-font,
+    weight: "bold",
+  )[#context { term-dictionary.get().Proof }.]
   #content#place(bottom + right, $square$)
 ]
 #let solution(content) = block(width: 100%)[
-  #text(font: title-font, weight: "bold")[Solution.]
+  #text(
+    font: title-font,
+    weight: "bold",
+  )[#context { term-dictionary.get().Solution }.]
   #content#place(bottom + right, $triangle$)
 ]
 
-#let definition = border-text-box("definition", "Definition")
-#let theorem = border-text-box("theorem", "Theorem")
-#let remark = non-border-text-box("remark", "Remark")
+#let definition = border-text-box(
+  "definition",
+  context term-dictionary.get().Definition,
+)
+#let theorem = border-text-box(
+  "theorem",
+  context term-dictionary.get().Theorem,
+)
+#let remark = non-border-text-box(
+  "remark",
+  context term-dictionary.get().Remark,
+)
+#let example = non-border-text-box(
+  "example",
+  context term-dictionary.get().Example,
+)
 #let exercise(..args, number: none) = {
   if number != none {
     counter(counter-name("exercise")).update(number - 1)
   }
-  non-border-text-box("exercise", "Exercise")(..args)
+  non-border-text-box(
+    "exercise",
+    context term-dictionary.get().Exercise,
+  )(..args)
 }
-#let text-boxes-kinds = ("definition", "remark", "theorem", "exercise")
+#let text-boxes-kinds = (
+  "definition",
+  "remark",
+  "theorem",
+  "exercise",
+  "example",
+)
 
 #let text-boxes(body) = {
   show: body => text-boxes-kinds.fold(body, (
