@@ -36,11 +36,11 @@
   let render = text-box(kind, supplement)
 
   (content, name: none) => render(
-    number-and-supplement => [
+    number-and-supplement => block(width: 100%)[
       #text(font: title-font)[
         #text(weight: "bold")[#number-and-supplement]#if name != none [ (#name)].
       ]
-      #content
+      #content#place(bottom + right, text(fill: light-color, $corner.r.b$))
     ],
   )
 }
