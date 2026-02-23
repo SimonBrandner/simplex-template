@@ -21,6 +21,7 @@
 
   set page(paper: "a4")
   set enum(numbering: "(a)", indent: 10pt)
+  set list(indent: 10pt)
   set par(justify: true)
   set heading(numbering: "1.1")
   set text(size: 12pt, lang: lang)
