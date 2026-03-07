@@ -32,6 +32,12 @@
   show heading.where(level: 1): set text(size: 30pt)
   show heading.where(level: 2): set text(size: 20pt)
   show heading.where(level: 3): set text(size: 16pt)
+  show heading.where(level: 1): it => {
+    let threshold = 100%
+    block(breakable: false, height: threshold)
+    v(-threshold, weak: true)
+    it
+  }
 
   // A hack to fix https://github.com/typst/typst/issues/529
   show math.equation.where(block: true): e => [
