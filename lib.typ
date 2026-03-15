@@ -33,6 +33,7 @@
   show heading.where(level: 2): set text(size: 20pt)
   show heading.where(level: 3): set text(size: 16pt)
   show heading.where(level: 1): it => {
+    counter(footnote).update(0)
     let threshold = 100%
     block(breakable: false, height: threshold)
     v(-threshold, weak: true)
