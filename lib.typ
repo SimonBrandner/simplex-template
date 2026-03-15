@@ -26,6 +26,7 @@
   set heading(numbering: "1.1")
   set text(size: 12pt, lang: lang)
 
+  show link: underline
   show: text-boxes
   show: equations
   show heading: set text(weight: "bold", font: title-font)
