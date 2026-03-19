@@ -26,7 +26,13 @@
   set heading(numbering: "1.1")
   set text(size: 12pt, lang: lang)
 
-  show link: underline
+  show link: it => {
+    if type(it.dest) == str {
+      underline(it)
+    } else {
+      it
+    }
+  }
   show: text-boxes
   show: equations
   show heading: set text(weight: "bold", font: title-font)
