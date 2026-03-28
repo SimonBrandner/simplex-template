@@ -56,7 +56,10 @@
   ]
 
   // Avoid overlaps with large inline equations
-  show math.equation.where(block: false): set text(bottom-edge: "bounds")
+  show math.equation.where(block: false): set text(
+    top-edge: "bounds",
+    bottom-edge: "baseline",
+  )
 
   show ref: it => [#h(2pt)#box(
       stroke: light-color,
