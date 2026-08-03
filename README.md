@@ -3,7 +3,7 @@
 ## How to use
 
 ```typst
-#import "@local/simplex-template:0.1.0": *
+#import "./simplex-template": *
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, edge
 
 #show: body => simplex-template(
