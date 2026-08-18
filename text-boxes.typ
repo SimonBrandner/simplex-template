@@ -49,7 +49,7 @@
   let render = text-box(kind, supplement)
 
   (name: none, content) => render(
-    number-and-supplement => box(
+    number-and-supplement => block(
       stroke: 0.5pt,
       inset: 7.5pt,
       radius: 5pt,
