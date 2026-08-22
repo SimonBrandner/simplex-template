@@ -1,5 +1,7 @@
 #let equation-counter = counter("equation:counter")
-#let equation(content) = {
+#let equation(content, ..args) = {
+  let equation-alignment = args.at("align", default: center)
+
   figure(
     outlined: false,
     kind: "equation",
@@ -15,7 +17,7 @@
       block(width: 100%)[
         #metadata(numbers)
         #label("equation:label")
-        #align(center, content)
+        #align(equation-alignment, content)
         #place(right + horizon, numbering(
           "(1.1)",
           ..numbers,
